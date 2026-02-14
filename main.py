@@ -1,22 +1,24 @@
-#Title: Bank Balance
+#Title: Average Rainfall
 #Author: Dominic Corneliusen
 #Date last modified: 2/13/2026
 
 #Variables
-userBudgetForMonth = int(input("How much money have you budgeted for this month?$"))
-expenseCategories = ['Housing','Transportation','Food','Utilities','Insurance',
-                     'Personal Care','Entertainment','Family care','Miscellaneous']
-totalAmount = 0
-#For loop
-for expense in expenseCategories:
-    text = 'How much did you spend in the', expense, 'category this month?$'
-    categoryAmount = int(input(text))
-    totalAmount = totalAmount + categoryAmount
-#Closing Statements
-print('Your budget for the month is $', userBudgetForMonth, '. You spent $', totalAmount, '.')
-if totalAmount > userBudgetForMonth:
-    print('Since your spending was greater than your budget, '
-          'you are over your spending budget.')
-else:
-    print('Since your spending was less than your budget, you are under '
-          'your spending budget. Congratulations!')
+numberOfYears = int(input("How many years are you collecting data from?"))
+count = numberOfYears
+monthsOfTheYear = ['January','February','March','April','May','June',
+                   'July','August','September','October','November','December']
+totalRainfall = 0
+
+#While Loop
+while count > 0:
+    for month in monthsOfTheYear:
+        printText = 'Enter the amount of rainfall in inches from', month, '.'
+        rainfallInMonth = int(input(printText))
+        totalRainfall = totalRainfall + rainfallInMonth
+    count -= 1
+#Closing statements
+amountOfMonths = 12 * numberOfYears
+averageRainfall = totalRainfall / amountOfMonths
+print("There was", amountOfMonths, "months of data reported.")
+print("The total amount of rainfall is", totalRainfall, "inches.")
+print("The average rainfall is", averageRainfall, "inches.")
